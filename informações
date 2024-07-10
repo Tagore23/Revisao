@@ -1,0 +1,13 @@
+cria repositorio - read me, gitignore: visualstudio
+clona o repositorio
+se tiver uma base do professor - baixa, aperta ctrl + X e coloca no repositorio
+usa o git add . <- com esse espaço mesmo
+git status para ver se esta tudo certo
+da um commit e um push
+Usa o npm sla oq para criar o front dentro do gitbash mesmo dentro da pasta do repositorio
+da um commit para conferir
+agora na API, usa o comando do dotnet ef migrations add Initial
+usa o dotnet ef database update
+não esquecer de mudar a porta
+não esquece de usar o CORS
+Instalar as bibliotecas do react
