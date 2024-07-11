@@ -11,3 +11,7 @@ usa o dotnet ef database update
 não esquecer de mudar a porta
 não esquece de usar o CORS
 Instalar as bibliotecas do react
+
+[FromServices]: Injeta dependências do contêiner DI.
+[FromRoute]: Extrai valores diretamente da URL.
+[FromBody]: Vincula o corpo da solicitação HTTP a um parâmetro do método de ação.
