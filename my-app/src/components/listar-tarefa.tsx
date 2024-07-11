@@ -1,19 +1,12 @@
 import { useEffect, useState } from "react";
 import { Tarefa } from "../models/tarefa";
+import { Categoria } from "../models/categoria";
 import axios from "axios";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 
-const StyledNavLink = styled(Link)`
-  text-decoration: none;
-  color: #399;
-  margin-right: 15px;
-  font-weight: bold;
 
-  &:hover {
-    color: blue;
-  }
-`;
+
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
@@ -24,13 +17,28 @@ const StyledTable = styled.table`
     text-align: left;
   }
   th {
-    background-color: #f2f2f9;
+    background-color: #123;
+  }
+`;
+const StyledButton = styled.button`
+  background-color: #123; 
+  color: black; 
+  padding: 10px 20px; 
+  border: none; 
+
+  font-size: 16px;
+  cursor: pointer; 
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #123; 
   }
 `;
 
 const StyledTableCell = styled.td`
   padding: 12px;
   text-align: left;
+  font-family: Arial, sans-serif;
 `;
 
 function ListarTarefas() {
@@ -69,27 +77,29 @@ function ListarTarefas() {
             <th>#</th>
             <th>Títulos</th>
             <th>Descrição</th>
+            <th>Categoria</th>
             <th>Status</th>
             <th>Criado Em</th>
             <th>Alterar Status</th>
           </tr>
         </thead>
         <tbody>
-          {tarefas.map((tarefa) => (
+          {tarefas.map((tarefa, categoria) => (
             <tr key={tarefa.tarefaId}>
               <StyledTableCell>{tarefa.tarefaId}</StyledTableCell>
               <StyledTableCell>{tarefa.titulo}</StyledTableCell>
               <StyledTableCell>{tarefa.descricao}</StyledTableCell>
+              <StyledTableCell>{tarefa.categoriaId}</StyledTableCell>
               <StyledTableCell>{tarefa.status}</StyledTableCell>
               <StyledTableCell>{tarefa.criadoEm}</StyledTableCell>
               <StyledTableCell>
-                <button
-                  onClick={() => {
+              <StyledButton onClick={() => {
                     alterar(tarefa.tarefaId!);
                   }}
                 >
+                  
                   Alterar
-                </button>
+                  </StyledButton>
               </StyledTableCell>
             </tr>
           ))}

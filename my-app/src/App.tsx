@@ -3,17 +3,38 @@ import ListarTarefas from "./components/listar-tarefa";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import CadastrarTarefa from "./components/cadastrar-tarefa";
 import ListarTarefasConcluidas from "./components/listar-concluidas-tarefa";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import ListarTarefasNaoConcluidas from "./components/listar-nao-concluidas-tarefa";
+import ListarCategoria from "./components/listar-categoria";
+import CadastrarCategoria from "./components/cadastrar-categoria";
+
+const GlobalStyle = createGlobalStyle`
+  body, html, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 const StyledNavLink = styled(Link)`
   text-decoration: none;
-  color: #399;
+  color: black;
   margin-right: 15px;
   font-weight: bold;
-
+ font-family: Arial, sans-serif;
   &:hover {
-    color: blue;
+    color: #123;
   }
+`;
+const PageContainer = styled.div`
+  background-color: #343541; 
+  color: white;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 
@@ -21,10 +42,13 @@ const StyledNavLink = styled(Link)`
 const MainContent = styled.div`
   padding: 20px;
   font-family: Arial, sans-serif;
+  color: black;
 `;
 function App() {
   return (
     <div>
+      <GlobalStyle />
+      <PageContainer>
       <div>
         <BrowserRouter>
           <nav>
@@ -52,6 +76,16 @@ function App() {
                   Cadastrar Tarefa{" "}
                 </StyledNavLink>
               </li>
+              <li>
+                <StyledNavLink to={"/pages/categoria/listar"}>
+                  Listar Categorias{" "}
+                </StyledNavLink>
+              </li>
+              <li>
+                <StyledNavLink to={"/pages/categoria/cadastrar"}>
+                  Cadastrar Categorias{" "}
+                </StyledNavLink>
+              </li>
             </ul>
           </nav>
           <MainContent>
@@ -67,11 +101,19 @@ function App() {
             />
             <Route
               path="/pages/tarefa/listarnaoconcluidas"
-              element={<ListarTarefasConcluidas />}
+              element={<ListarTarefasNaoConcluidas />}
             />
             <Route
               path="/pages/tarefa/cadastrar"
               element={<CadastrarTarefa />}
+            />
+            <Route
+              path="/pages/categoria/listar"
+              element={<ListarCategoria/>}
+            />
+             <Route
+              path="/pages/categoria/cadastrar"
+              element={<CadastrarCategoria/>}
             />
           </Routes>
           <footer>
@@ -80,6 +122,7 @@ function App() {
           </MainContent>
         </BrowserRouter>
       </div>
+      </PageContainer>
     </div>
   );
 }
