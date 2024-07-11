@@ -15,3 +15,5 @@ Instalar as bibliotecas do react
 [FromServices]: Injeta dependências do contêiner DI.
 [FromRoute]: Extrai valores diretamente da URL.
 [FromBody]: Vincula o corpo da solicitação HTTP a um parâmetro do método de ação.
+
+por algum motivo os .ts devem estar em minusculo
