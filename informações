@@ -1,19 +1,41 @@
 cria repositorio - read me, gitignore: visualstudio
-clona o repositorio
-se tiver uma base do professor - baixa, aperta ctrl + X e coloca no repositorio
-usa o git add . <- com esse espaço mesmo
+clona o repositorio = git clone 
+Caso tenha algum arquivo de API, baixe e aperte CTRL + X e coloque no repositório
+usa o git add . <- para colocar os novos arquivos dentro do repositorio
 git status para ver se esta tudo certo
-da um commit e um push
-Usa o npm sla oq para criar o front dentro do gitbash mesmo dentro da pasta do repositorio
-da um commit para conferir
+da um commit git commit -m "aaa" , e um push git push
+Usa o npx create-react-app my-app --template typescript, pode ser com o gitbash ele vai funcionar
+de um commit para conferir
+
+CASO SEJA NECESSÁRIO CRIAR O BACK:
+dotnet new sln --output MySolution
+dotnet new web -n MinimalApiProject
+dotnet sln add NomeDoProjeto -------- Coloca o projeto criado por exemplo o MinimalApiProject dentro do MySolution
+adiciona os dois pacotes:
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+Caso não tenha o banco:
+dotnet ef migrations add InitialCreate
+dotnet tool install --global dotnet-ef
+dotnet ef database update
+
+BACK
 agora na API, usa o comando do dotnet ef migrations add Initial
 usa o dotnet ef database update
 não esquecer de mudar a porta
 não esquece de usar o CORS
-Instalar as bibliotecas do react
 
+os Froms:
 [FromServices]: Injeta dependências do contêiner DI.
 [FromRoute]: Extrai valores diretamente da URL.
 [FromBody]: Vincula o corpo da solicitação HTTP a um parâmetro do método de ação.
 
-por algum motivo os .ts devem estar em minusculo
+FRONT
+Instalar as bibliotecas do react:
+
+npm install react-router-dom
+npm install @types/react-router-dom
+npm install axios
+
+as variaveis da interface devem estar em minusculo
